@@ -12,6 +12,14 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      boxShadow: {
+        '3xl': 'box-shadow: 0px 0px 4px 0px #89E2FF33;',
+      },
+      fontFamily: {
+        mainFont: "var(--font-earth-orbiter)",
+        secondaryFont: "var(--secondaryFont)",
+        // inputFont:'var(----inputFont)',
+      },
     },
   },
   plugins: [],
