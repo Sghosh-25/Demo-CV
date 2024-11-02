@@ -34,7 +34,7 @@ export default function Home() {
           {/* Image container */}
           <div className="mt-4 sm:mt-6 mx-auto w-full sm:w-[800px] md:w-[1200px] lg:w-[1400px] h-auto">
             <Image
-              src="/html_system_websites_concept 1.jpg"
+              src="/HeroBottom.jpg"
               alt="html system image"
               width={1600}
               height={1067}
