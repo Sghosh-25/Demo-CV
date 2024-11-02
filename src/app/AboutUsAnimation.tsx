@@ -3,62 +3,83 @@ import React, { useRef, useEffect } from "react";
 import { mainFont } from "@/app/Mainfontt";
 import { motion, useAnimation } from "framer-motion";
 
+// Define the AboutUsAnimation component
 const AboutUsAnimation = () => {
   const controls1 = useAnimation();
   const controls2 = useAnimation();
   const controls3 = useAnimation();
-  const containerRef = useRef(null);
+  const containerRef = useRef(null); // Create a ref for the container
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollY = window.scrollY;
-      const viewportHeight = window.innerHeight;
-      const triggerPoint = viewportHeight * 0.2; // 80% of the viewport height
+      const scrollY = window.scrollY; // Get current scroll position
+      const viewportHeight = window.innerHeight; // Get viewport height
+      const triggerPoint = viewportHeight * 0.2; // Set trigger point at 20% of viewport height
 
+      // Check if scroll position is past the trigger point
       if (scrollY > triggerPoint) {
-        controls1.start({ y: -scrollY * 0.55, transition: { duration: 0.8, ease: 'easeOut' } });
-        controls2.start({ y: -scrollY * 0.6, transition: { duration: 1, ease: 'easeOut' } });
-        controls3.start({ y: -scrollY * 0.5, transition: { duration: 0.8, ease: 'easeOut' } });
+        // Start animations for each div with different speeds and durations
+        controls1.start({
+          y: -scrollY * 0.55,
+          transition: { duration: 0.8, ease: "easeOut" },
+        });
+        controls2.start({
+          y: -scrollY * 0.6,
+          transition: { duration: 1, ease: "easeOut" },
+        });
+        controls3.start({
+          y: -scrollY * 0.5,
+          transition: { duration: 0.8, ease: "easeOut" },
+        });
       } else {
+        // Reset divs to their original positions
         controls1.start({ y: 0 });
         controls2.start({ y: 0 });
         controls3.start({ y: 0 });
       }
     };
 
+    // Add scroll event listener
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll); // Clean up event listener on component unmount
   }, [controls1, controls2, controls3]);
+
   return (
-    <div className="h-[110vh] mt-80 flex justify-around gap-x-8">
+    <div className="h-[110vh] mt-32 md:mt-80 flex flex-col lg:flex-row justify-around gap-y-10 gap-x-8">
+      {/* Card Section Start */}
       <div
         ref={containerRef}
-        className="w-[55vw] flex justify-around items-center"
+        className="w-[90vw] sm:w-[70vw] lg:w-[55vw] flex justify-around items-center flex-col lg:flex-row"
       >
+        {/* Three animated divs with different controls */}
         <motion.div
-          className="w-[306px] h-[470px] relative -right-36 -top-8 bg-rose-500 rounded-2xl"
+          className="w-[250px] sm:w-[306px] h-[300px] sm:h-[470px] relative lg:-right-36 lg:-top-8 bg-rose-500 rounded-2xl"
           animate={controls1}
         />
         <motion.div
-          className="w-[306px] h-[470px] relative -bottom-10 bg-slate-500 rounded-2xl"
+          className="w-[250px] sm:w-[306px] h-[300px] sm:h-[470px] relative lg:-bottom-10 bg-slate-500 rounded-2xl"
           animate={controls2}
         />
         <motion.div
-          className="w-[306px] h-[470px] relative -left-36 -bottom-6 bg-yellow-500 rounded-2xl"
+          className="w-[250px] sm:w-[306px] h-[300px] sm:h-[470px] relative lg:-left-36 lg:-bottom-6 bg-yellow-500 rounded-2xl"
           animate={controls3}
         />
       </div>
+      {/* Card Section End */}
 
-      <div ref={containerRef} className="w-[45vw] flex flex-col justify-center gap-y-10">
+      {/* Text Section Start */}
+      <div
+        ref={containerRef}
+        className="w-[90vw] sm:w-[70vw] lg:w-[45vw] flex flex-col justify-center gap-y-10"
+      >
         <motion.div
-          style={{
-            fontFamily: mainFont.style.fontFamily,
-          }}
-          className="w-[653] h-[140] text-5xl uppercase" animate={controls1}
+          style={{ fontFamily: mainFont.style.fontFamily }}
+          className="w-full sm:w-[653px] h-[100px] sm:h-[140px] text-3xl sm:text-5xl uppercase"
+          animate={controls1}
         >
-          We create imapactful digital experience that drvie success
+          We create impactful digital experiences that drive success
         </motion.div>
-        <motion.p className="w-[653] h-[120] text-lg" animate={controls3}>
+        <motion.p className="w-full sm:w-[653px] h-[100px] sm:h-[120px] text-base sm:text-lg" animate={controls3}>
           Code Visionary Studios is dedicated to creating impactful digital
           experiences. With a focus on web design, app development, branding,
           and digital marketing, we provide comprehensive solutions tailored to
@@ -66,8 +87,11 @@ const AboutUsAnimation = () => {
           it all happen.
         </motion.p>
       </div>
+      {/* Text Section End */}
     </div>
   );
 };
 
 export default AboutUsAnimation;
+
+// Here, we define a functional component called AboutUsAnimation. We then create three animation controls (controls1, controls2, controls3) for our three divs and a reference (containerRef) to the container holding the divs.                                                                                        We use the useEffect hook to run some code when the component mounts. Inside it, we define a function called handleScroll that runs whenever the user scrolls. scrollY gets the current vertical scroll position, viewportHeight gets the height of the viewport, and triggerPoint is 20% of the viewport height.                                                                                                Each motion.div is a regular div but with animation capabilities provided by framer-motion. The animate prop connects the divs to their respective animation controls.
