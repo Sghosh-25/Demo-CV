@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <>
       {/* Fragment to wrap the component without adding extra nodes to the DOM */}
-      <div className="w-full">
+      <div className="w-[100%]">
         <div className="w-full flex flex-col  bg-[url(/Vector1.png)]">
           {/* Background image container with padding and flex layout */}
           <div className="mt-12 sm:mt-24 md:mt-48  mx-auto w-full sm:w-[700px] md:w-[1329px]">
