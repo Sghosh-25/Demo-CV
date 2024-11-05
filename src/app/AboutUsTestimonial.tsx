@@ -4,7 +4,7 @@ import CounterUp from "./CounterUp";
 
 const AboutUsTestimonial = () => {
   return (
-    <div className="w-full h-auto md:h-screen flex flex-col md:flex-row justify-around">
+    <div className="w-full h-auto md:h-screen flex flex-col md:flex-row justify-center">
       <div className="w-full md:w-1/2 h-full py-10 md:py-20">
         <div className="flex flex-col gap-6 justify-center items-center px-4 md:px-0">
           <div
