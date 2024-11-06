@@ -12,8 +12,10 @@ export default function Home() {
     <>
       {/* Fragment to wrap the component without adding extra nodes to the DOM */}
       <div className="w-[100%]">
+        
         <div className="w-full flex flex-col  bg-[url(/Vector1.png)]">
           {/* Background image container with padding and flex layout */}
+          <div className="md:scale-95">
           <div className="mt-12 sm:mt-24 md:mt-48  mx-auto w-full sm:w-[700px] md:w-[1329px]">
             {/* Container for the text content */}
             <span
@@ -32,7 +34,7 @@ export default function Home() {
             </p>
           </div>
           {/* Image container */}
-          <div className="mt-4 sm:mt-6 mx-auto w-full sm:w-[800px] md:w-[1200px] lg:w-[1400px] h-auto">
+          <div className="mt-4 sm:mt-6 mx-auto w-full sm:w-[800px] md:w-[1000px] lg:w-[1400px] h-auto">
             <Image
               src="/herobottom.jpg"
               alt="html system image"
@@ -40,11 +42,13 @@ export default function Home() {
               height={1067}
               layout="responsive"
               priority
-              className="rounded-t-3xl shadow-[0px_0px_4px_0px_#89E2FF33] mx-auto"
+              className="rounded-t-3xl  shadow-[0px_0px_4px_0px_#89E2FF33] mx-auto"
             />
-          </div>
+            {/* <img src="/herobottom.jpg" alt="" className="rounded-t-3xl  shadow-[0px_0px_4px_0px_#89E2FF33] mx-auto"/> */}
+          </div></div>
         </div>
       </div>
+    
       {/* About Us Animated Card Section */}
       <AboutUsAnimation />
       {/* About Us Testimonial Section */}

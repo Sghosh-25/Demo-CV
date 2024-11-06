@@ -4,7 +4,7 @@ import CounterUp from "./CounterUp";
 
 const AboutUsTestimonial = () => {
   return (
-    <div className="w-full h-auto md:h-screen flex flex-col md:flex-row justify-center">
+    <div className="w-full h-auto md:h-screen md:scale-90 flex flex-col md:flex-row justify-center">
       <div className="w-full md:w-1/2 h-full py-10 md:py-20">
         <div className="flex flex-col gap-6 justify-center items-center px-4 md:px-0">
           <div
@@ -69,7 +69,7 @@ const AboutUsTestimonial = () => {
                 style={{ fontFamily: mainFont.style.fontFamily }}
                 className="text-5xl md:text-8xl uppercase font-bold text-center"
               >
-                <CounterUp endCountNum={4} duration={10} />
+                <CounterUp endCountNum={4} duration={6} />
               </h1>
               <div className="text-lg md:text-xl text-center uppercase">
                 Years of Experience
@@ -80,7 +80,7 @@ const AboutUsTestimonial = () => {
                 style={{ fontFamily: mainFont.style.fontFamily }}
                 className="text-5xl md:text-8xl uppercase font-bold text-center"
               >
-                <CounterUp endCountNum={100} duration={10} />
+                <CounterUp endCountNum={100} duration={6} />
               </h1>
               <div className="text-lg md:text-xl text-center uppercase">
                 Projects
@@ -93,7 +93,7 @@ const AboutUsTestimonial = () => {
                 style={{ fontFamily: mainFont.style.fontFamily }}
                 className="text-5xl md:text-8xl uppercase font-bold text-center"
               >
-                <CounterUp endCountNum={20} duration={10} />
+                <CounterUp endCountNum={20} duration={6} />
               </h1>
               <div className="text-lg md:text-xl text-center uppercase">
                 Satisfied Customers
@@ -104,7 +104,7 @@ const AboutUsTestimonial = () => {
                 style={{ fontFamily: mainFont.style.fontFamily }}
                 className="text-5xl md:text-8xl uppercase font-bold text-center"
               >
-                <CounterUp endCountNum={1500} duration={10} />
+                <CounterUp endCountNum={1500} duration={6} />
               </h1>
               <div className="text-lg md:text-xl text-center uppercase">
                 Hours Invested

@@ -10,16 +10,15 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 const AboutUsFooter = () => {
   return (
-    <div className=" w-full h-[467px] bg-gradient-to-b from-[#590005] via-[#AB000A] to-[#650006] flex flex-col justify-center gap-12 items-center">
-     
-        <Image
-          src="/CVlogo.png"
-          alt="Floating Laptop Image"
-          width={240}
-          height={82}
-          className=""
-        />
-    
+    <div className=" w-full h-[467px] bg-gradient-to-b from-[#590005] via-[#AB000A] to-[#650006] flex flex-col justify-center gap-12 items-center ">
+      <Image
+        src="/CVlogo.png"
+        alt="Floating Laptop Image"
+        width={240}
+        height={82}
+        className=""
+      />
+
       <div>
         <ul className="flex justify-center gap-10">
           <li>Home</li>
@@ -37,8 +36,10 @@ const AboutUsFooter = () => {
         <FontAwesomeIcon icon={faSquareXTwitter} />
       </div>
       <div className="w-full h-[1px] bg-white mx-auto "></div>
-      <div style={{ fontFamily: mainFont.style.fontFamily }} className="text-center  ">
-       
+      <div
+        style={{ fontFamily: mainFont.style.fontFamily }}
+        className="text-center  "
+      >
         2024 | All rights reserved by <span> Code visonary studio</span>
       </div>
     </div>

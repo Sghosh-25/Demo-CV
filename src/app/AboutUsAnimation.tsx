@@ -43,8 +43,12 @@ const AboutUsAnimation = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll); // Clean up event listener on component unmount
   }, [controls1, controls2, controls3]);
+  
 
   return (
+
+    
+
     <div className="h-[110vh] mt-32 md:mt-80 flex flex-col lg:flex-row justify-around gap-y-10 gap-x-8">
       {/* Card Section Start */}
       <div
