@@ -1,7 +1,13 @@
 "use client";
 import React, { useRef, useEffect } from "react";
 import { mainFont } from "@/app/Mainfontt";
-import { motion, useAnimation } from "framer-motion";
+import {
+  useScroll,
+  useTransform,
+  motion,
+  useSpring,
+  useAnimation,
+} from "framer-motion";
 
 // Define the AboutUsAnimation component
 const AboutUsAnimation = () => {
@@ -43,55 +49,77 @@ const AboutUsAnimation = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll); // Clean up event listener on component unmount
   }, [controls1, controls2, controls3]);
-  
+
+  const mainWrapper = useRef<HTMLDivElement | null>(null);
+  const { scrollYProgress } = useScroll({
+    target: mainWrapper,
+    offset: ["start -10%", "start center"],
+  });
+  // Start at the top and end at the middle of the screen
+  // Adjust the animation to start at the current position and end in the middle of the screen
+  const translateY = useTransform(scrollYProgress, [0, 0.5], ["0%", "100%"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  // For smooth transitions
+  const translateYSmooth = useSpring(translateY, {
+    stiffness: 100,
+    damping: 20,
+  });
+  const opacitySmooth = useSpring(opacity, { stiffness: 100, damping: 20 });
 
   return (
+    // <div className="h-[110vh] mt-32 md:mt-80 flex flex-col lg:flex-row justify-around gap-y-10 gap-x-8">
+    //     {/* Card Section Start */}
+    //     <div
+    //       ref={containerRef}
+    //       className="w-[90vw] sm:w-[70vw] lg:w-[55vw] flex justify-around items-center flex-col lg:flex-row"
+    //     >
+    //       {/* Three animated divs with different controls */}
+    //       <motion.div
+    //         className="w-[250px] sm:w-[306px] h-[300px] sm:h-[470px] relative lg:-right-36 lg:-top-8 bg-rose-500 rounded-2xl"
+    //         animate={controls1}
+    //       />
+    //       <motion.div
+    //         className="w-[250px] sm:w-[306px] h-[300px] sm:h-[470px] relative lg:-bottom-10 bg-slate-500 rounded-2xl"
+    //         animate={controls2}
+    //       />
+    //       <motion.div
+    //         className="w-[250px] sm:w-[306px] h-[300px] sm:h-[470px] relative lg:-left-36 lg:-bottom-6 bg-yellow-500 rounded-2xl"
+    //         animate={controls3}
+    //       />
+    //     </div>
+    //     {/* Card Section End */}
 
-    
-
-    <div className="h-[110vh] mt-32 md:mt-80 flex flex-col lg:flex-row justify-around gap-y-10 gap-x-8">
-      {/* Card Section Start */}
-      <div
-        ref={containerRef}
-        className="w-[90vw] sm:w-[70vw] lg:w-[55vw] flex justify-around items-center flex-col lg:flex-row"
+    //     {/* Text Section Start */}
+    //     <div
+    //       ref={containerRef}
+    //       className="w-[90vw] sm:w-[70vw] lg:w-[45vw] flex flex-col justify-center gap-y-10"
+    //     >
+    //       <motion.div
+    //         style={{ fontFamily: mainFont.style.fontFamily }}
+    //         className="w-full sm:w-[653px] h-[100px] sm:h-[140px] text-3xl sm:text-5xl uppercase"
+    //         animate={controls1}
+    //       >
+    //         We create impactful digital experiences that drive success
+    //       </motion.div>
+    //       <motion.p className="w-full sm:w-[653px] h-[100px] sm:h-[120px] text-base sm:text-lg" animate={controls3}>
+    //         Code Visionary Studios is dedicated to creating impactful digital
+    //         experiences. With a focus on web design, app development, branding,
+    //         and digital marketing, we provide comprehensive solutions tailored to
+    //         your needs. Explore our values, our approach, and the team that makes
+    //         it all happen.
+    //       </motion.p>
+    //     </div>
+    //     {/* Text Section End */}
+    //   </div>
+    <div ref={mainWrapper} className="h-[100vh]">
+      {" "}
+      <motion.div
+        style={{ y: translateYSmooth, opacity: opacitySmooth }}
+        className="h-[30vh] w-[20vw] bg-blue-500"
       >
-        {/* Three animated divs with different controls */}
-        <motion.div
-          className="w-[250px] sm:w-[306px] h-[300px] sm:h-[470px] relative lg:-right-36 lg:-top-8 bg-rose-500 rounded-2xl"
-          animate={controls1}
-        />
-        <motion.div
-          className="w-[250px] sm:w-[306px] h-[300px] sm:h-[470px] relative lg:-bottom-10 bg-slate-500 rounded-2xl"
-          animate={controls2}
-        />
-        <motion.div
-          className="w-[250px] sm:w-[306px] h-[300px] sm:h-[470px] relative lg:-left-36 lg:-bottom-6 bg-yellow-500 rounded-2xl"
-          animate={controls3}
-        />
-      </div>
-      {/* Card Section End */}
-
-      {/* Text Section Start */}
-      <div
-        ref={containerRef}
-        className="w-[90vw] sm:w-[70vw] lg:w-[45vw] flex flex-col justify-center gap-y-10"
-      >
-        <motion.div
-          style={{ fontFamily: mainFont.style.fontFamily }}
-          className="w-full sm:w-[653px] h-[100px] sm:h-[140px] text-3xl sm:text-5xl uppercase"
-          animate={controls1}
-        >
-          We create impactful digital experiences that drive success
-        </motion.div>
-        <motion.p className="w-full sm:w-[653px] h-[100px] sm:h-[120px] text-base sm:text-lg" animate={controls3}>
-          Code Visionary Studios is dedicated to creating impactful digital
-          experiences. With a focus on web design, app development, branding,
-          and digital marketing, we provide comprehensive solutions tailored to
-          your needs. Explore our values, our approach, and the team that makes
-          it all happen.
-        </motion.p>
-      </div>
-      {/* Text Section End */}
+        {" "}
+        Scroll to animate me!{" "}
+      </motion.div>{" "}
     </div>
   );
 };

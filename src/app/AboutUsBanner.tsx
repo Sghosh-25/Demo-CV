@@ -5,7 +5,7 @@ import { mainFont } from "@/app/Mainfontt";
 const AboutUsBanner = () => {
   return (
     <div>
-      <div className="w-full h-[110vh] flex items-center justify-center md:scale-90 md:h-full ">
+      <div className="w-full h-[120vh] flex items-center justify-center md:scale-90 md:h-full md:my-36 ">
         <div className="relative h-[300px] sm:h-[500px] md:h-[725px] w-[300px] sm:w-[500px] md:w-[725px] bg-[#0726306b] blur-xl rounded-full mx-auto"></div>
           <div className="absolute w-full md:w-[1400px] h-[300px] sm:h-[400px] md:h-[500px] bg-[url(/bannerBg.png)] flex flex-col md:flex-row justify-evenly">
             <div className="w-full md:w-[60%] flex flex-col justify-center gap-4 sm:gap-6 md:gap-8 p-4 sm:pl-10 md:pl-20">
