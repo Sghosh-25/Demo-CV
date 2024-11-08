@@ -15,17 +15,17 @@ export default function Home() {
         
         <div className="w-full flex flex-col  bg-[url(/Vector1.png)]">
           {/* Background image container with padding and flex layout */}
-          <div className="md:scale-95">
-          <div className="mt-12 sm:mt-24 md:mt-48  mx-auto w-full sm:w-[700px] md:w-[1329px]">
+          <div className="">
+          <div className="mt-28 mx-auto w-[80%]   ">
             {/* Container for the text content */}
             <span
               style={{ fontFamily: mainFont.style.fontFamily }} // Applying the main font style
-              className="font-semibold text-3xl sm:text-5xl md:text-7xl uppercase h-[100px] sm:h-[150px]"
+              className="font-semibold text-[82px] leading-[82px] uppercase  "
             >
               {/* Styling the text */}
               We Believe in Innovation and Creativity
             </span>
-            <p className="py-4 sm:py-6 md:py-8 text-base sm:text-lg md:text-xl h-[100px] sm:h-[120px]">
+            <p className="py-4 text-xl ">
               At Code Visionary Studios, we believe in the power of innovation
               and creativity. Our team excels in web design, app development,
               branding, and digital marketing, delivering solutions that drive
@@ -34,15 +34,15 @@ export default function Home() {
             </p>
           </div>
           {/* Image container */}
-          <div className="mt-4 sm:mt-6 mx-auto w-full sm:w-[800px] md:w-[1000px] lg:w-[1400px] h-auto">
+          <div className="mt-4 mx-auto w-[80%] ">
             <Image
               src="/herobottom.jpg"
               alt="html system image"
               width={1600}
-              height={1067}
+              height={739}
               layout="responsive"
               priority
-              className="rounded-t-3xl  shadow-[0px_0px_4px_0px_#89E2FF33] mx-auto"
+              className="rounded-3xl  shadow-[0px_0px_4px_0px_#89E2FF33] mx-auto"
             />
             {/* <img src="/herobottom.jpg" alt="" className="rounded-t-3xl  shadow-[0px_0px_4px_0px_#89E2FF33] mx-auto"/> */}
           </div></div>
